@@ -1,0 +1,75 @@
+.header {
+    display: grid;
+    grid-template-columns: 1 / -1;
+    justify-content: center;
+    color: white;
+    padding: 2rem;
+    z-index: 1000;
+    background-color: $color-primary;
+    
+    &__title {
+        font-family: $font-family-primary;
+        font-weight: 400;
+        font-size: 2em;
+        text-transform: uppercase;
+        font-style: italic;
+    }
+}
+
+.nav {
+    display: grid;
+    grid-template-columns: minmax(min-content,1fr) minmax(min-content, max-content) minmax(min-content,1fr);
+    grid-column-gap: 1.2rem;
+    width: 100%;
+    background-color: $color-secondary;
+    justify-content: center;
+    font-size: 1.375em;
+    color: white;
+    padding: 1rem;
+
+    &__actions {
+        display: grid;
+        grid-template-columns: repeat(4,minmax(min-content, max-content));
+        grid-column-gap: 1rem;
+    }
+
+    &__link{
+        text-decoration: none;
+        color: white;
+        font-family: $font-family-primary;
+        font-weight: 300;
+        transition: all .2s;
+
+        &-auth:hover{
+            color: $color-violet-light;
+        }
+
+        &:hover{
+            color: $color-violet-light;
+            transition: all .2s;
+        }
+    }
+
+    &__input {
+        width: 50%;
+        font-size: 1em; //16 px
+        border: 3px solid $color-violet-light;
+        transition: all .3s;
+        
+        &:focus {
+            border: none;
+            border-bottom: 5px solid $color-violet-light;
+            transition: all .3s;
+        }
+    }
+
+    &__auth {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(min-content, max-content));
+        grid-column-gap: 1rem;
+        background-color: $color-terciary;
+        width: 50%;
+        justify-self: end;
+        justify-content: center;
+    }
+}

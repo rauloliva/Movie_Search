@@ -1,0 +1,110 @@
+.u-font-size-18 {
+  font-size: 0.937em;
+}
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+body {
+  box-sizing: border-box;
+  height: 100vh;
+  background-image: linear-gradient(to right bottom, rgba(0, 0, 255, 0.85), rgba(102, 126, 184, 0.85)), url(/images/cover.jpg?715bb18a4917ad2d3e8b9bd678f31d10);
+  background-size: cover;
+  background-position: top;
+  z-index: -10;
+}
+
+::-moz-selection {
+  background-color: #9450d4;
+  color: white;
+}
+
+::selection {
+  background-color: #9450d4;
+  color: white;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1/-1;
+  justify-content: center;
+  color: white;
+  padding: 2rem;
+  z-index: 1000;
+  background-color: #1f1f77;
+}
+
+.header__title {
+  font-family: "Chelsea Market", cursive;
+  font-weight: 400;
+  font-size: 2em;
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: minmax(-webkit-min-content, 1fr) minmax(-webkit-min-content, -webkit-max-content) minmax(-webkit-min-content, 1fr);
+  grid-template-columns: minmax(min-content, 1fr) minmax(min-content, max-content) minmax(min-content, 1fr);
+  grid-column-gap: 1.2rem;
+  width: 100%;
+  background-color: #5b6066;
+  justify-content: center;
+  font-size: 1.375em;
+  color: white;
+  padding: 1rem;
+}
+
+.nav__actions {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(-webkit-min-content, -webkit-max-content));
+  grid-template-columns: repeat(4, minmax(min-content, max-content));
+  grid-column-gap: 1rem;
+}
+
+.nav__link {
+  text-decoration: none;
+  color: white;
+  font-family: "Chelsea Market", cursive;
+  font-weight: 300;
+  transition: all 0.2s;
+}
+
+.nav__link-auth:hover {
+  color: #9450d4;
+}
+
+.nav__link:hover {
+  color: #9450d4;
+  transition: all 0.2s;
+}
+
+.nav__input {
+  width: 50%;
+  font-size: 1em;
+  border: 3px solid #9450d4;
+  transition: all 0.3s;
+}
+
+.nav__input:focus {
+  border: none;
+  border-bottom: 5px solid #9450d4;
+  transition: all 0.3s;
+}
+
+.nav__auth {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(-webkit-min-content, -webkit-max-content));
+  grid-template-columns: repeat(2, minmax(min-content, max-content));
+  grid-column-gap: 1rem;
+  background-color: #1f4f77;
+  width: 50%;
+  justify-self: end;
+  justify-content: center;
+}
+
