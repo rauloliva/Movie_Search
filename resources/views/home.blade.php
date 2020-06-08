@@ -1,27 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home - MovieSearch</title>
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
-    <link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Josefin+Sans&display=swap" rel="stylesheet">
-</head>
-<body>
-    @extends('header')
-    <div class="content">
-        
-    </div>
-</body>
-<script>
+@extends('app')
 
-function nuevaVentana() {
-            /*window.open("/", "CALCULADORA",
-            "toolbar=no, location=no, directories=no, status=no, menubar=no, \
-            scrollbars=no, resizable=no, copyhistory=no, width=400, height=500");*/
-        }
-</script>
+@section('title','Home')
 
-<script src="{{asset('js/app.js')}}"></script>
-</html>
+@section('content')
+    <nav class="nav">
+        <div class="nav__actions">
+            <a href="/catalog" class="nav__link">Catalog</a>
+            <a href="#" class="nav__link">About</a>
+            <a href="#" class="nav__link">Contact</a>
+            <a href="#" class="nav__link">Help</a>
+        </div>
+
+        <form action="/catalog/search" method="POST" class="nav__search">
+            @csrf
+            <input class="nav__input" name="movie" type="text" required/>
+            <button type="submit" class="nav__link nav__link-icon">
+                <svg class="login__link">
+                    <use xlink:href="images/icons.svg#icon-arrow-thin-right"></use>
+                </svg>
+            </button>
+        </form>
+    </nav>
+    @if ($errors->any())
+        <div class="error">
+            <ul class="error__list">
+                @foreach ($errors->all() as $error)
+                    <li><span class="error__prefix">Error:</span> {{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+@endsection
