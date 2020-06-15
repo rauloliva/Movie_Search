@@ -21,13 +21,22 @@
             </button>
         </form>
     </nav>
-    @if ($errors->any())
-        <div class="error">
-            <ul class="error__list">
-                @foreach ($errors->all() as $error)
-                    <li><span class="error__prefix">Error:</span> {{ $error }}</li>
-                @endforeach
-            </ul>
+
+    <div class="home__layout">
+        <div class="home__container">
+            <h1 class="home__container-h1">
+                Search interesting stuff about your favorite movies or series
+            </h1>
+            <p class="home__container-paragraph">
+                Find information, date of releases or casts of your favorite movies, tv series. dig deep using my web site and perhaps you'll find this web site much comfortable and easy-to-use
+            </p>
+
+            <div class="carrusel">
+                <img class="carrusel__img" src="images/carrusel/image4.jpg">
+                <div class="carrusel__info">
+                    <p id="phrase">Enjoy a different experience while looking for a movie or tv series</p>
+                </div>
+            </div>
         </div>
-    @endif
+    </div>
 @endsection

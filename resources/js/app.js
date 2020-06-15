@@ -1,2 +1,3 @@
 require('./bootstrap');
-require('./example');
+$ = require('jquery/dist/jquery')
+require('./assets');

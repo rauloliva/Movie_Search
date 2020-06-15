@@ -27,10 +27,9 @@
             @foreach ($result['results'] as $movie)
                 @if (test($movie))
                     <div class="results">
-                        <p>Title: {{$movie['title']}}</p>
-                        <p>Title Type: {{$movie['titleType']}}</p>
+                        <p class="paragraph__title">Title: {{$movie['title']}}</p>
+                        <p class="paragraph__title">Title Type: {{$movie['titleType']}}</p>
                         <p>Year of release: {{$movie['year']}}</p>
-                        <p>Image</p>
                         <img src="{{$movie['image']['url']}}" alt="Image" width="150" height="200">
                     </div>
                 @endif
