@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCatalogsTable extends Migration
+class CreateMovieDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateCatalogsTable extends Migration
      */
     public function up()
     {
-        Schema::create('catalogs', function (Blueprint $table) {
+        Schema::create('movie_details', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('movie_detail_id');
+            $table->text('directors');
+            $table->text('plot');
+            $table->timestamps();
         });
     }
 
@@ -26,6 +28,6 @@ class CreateCatalogsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('catalogs');
+        Schema::dropIfExists('movie_details');
     }
 }

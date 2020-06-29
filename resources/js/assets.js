@@ -1,5 +1,5 @@
 /**
- * 
+ * Sets the behaviour of the carrusel container
  */
 function carrusel() {
     texts = [

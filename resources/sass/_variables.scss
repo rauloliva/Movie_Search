@@ -9,6 +9,8 @@ $color-violet-light: rgb(148, 80, 212);
 $color-icon-svg-primary: rgb(190, 186, 148);
 $color-icon-svg-secondary: rgb(214, 205, 123);
 
+$color-btn: rgb(115, 115, 184);
+
 
 $font-family-primary: 'Chelsea Market', cursive;
 $font-family-secondary: 'Josefin Sans', sans-serif;
@@ -16,4 +18,28 @@ $font-family-secondary: 'Josefin Sans', sans-serif;
 
 .u-font-size-18{
     font-size: 0.937em;  //16px
+}
+
+@keyframes btnColor {
+    0% {
+        border-top: 3px solid #fff;
+    }
+
+    40% {
+        border-top: 3px solid #fff;
+        border-bottom: 3px solid #fff;
+    }
+
+    70% {
+        border-top: 3px solid #fff;
+        border-bottom: 3px solid #fff;
+        border-left: 3px solid #fff;
+    }
+
+    100%{
+        border-top: 3px solid #fff;
+        border-bottom: 3px solid #fff;
+        border-left: 3px solid #fff;
+        border-right: 3px solid #fff;
+    }
 }

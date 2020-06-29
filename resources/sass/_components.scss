@@ -18,7 +18,6 @@
 .nav {
     display: grid;
     grid-template-columns: minmax(min-content,1fr) minmax(min-content, max-content) minmax(min-content,1fr);
-    grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 1.4rem;
     grid-row-gap: 1rem;
     width: 100%;
@@ -82,6 +81,16 @@
         grid-row: 2 / 3;
         grid-column: 2 / 3;
     }
+
+    &__enter {
+        height: 2rem;
+        width: 2rem;
+        fill: $color-icon-svg-primary;
+
+        &:hover, &:active {
+            fill: $color-icon-svg-secondary;
+        }
+    }
 }
 
 .content {
@@ -91,16 +100,6 @@
 
     &-1 {
         grid-column: 2 / 3;
-    }
-}
-
-.login__link {
-    height: 2rem;
-    width: 2rem;
-    fill: $color-icon-svg-primary;
-
-    &:hover, &:active {
-        fill: $color-icon-svg-secondary;
     }
 }
 
@@ -142,6 +141,21 @@
 .results {
     background-color: $color-4;
     opacity: .8;
+    display: grid;
+    grid-template-rows: repeat(5, minmax(min-content, max-content));
+    grid-row-gap: 1.2rem;
+    padding-bottom: 5px;
+    justify-items: center;
+    border-radius: 5px;
+    box-shadow: 10px 5px 5px #494949;
+
+    &:first-child {
+        justify-content: center;
+    }
+
+    &__image {
+        border-radius: 5px;
+    }
 }
 
 .results__layout {
@@ -149,14 +163,15 @@
     grid-template-columns: repeat(5, minmax(min-content, max-content));
     grid-column-gap: 2rem;
     grid-row-gap: 2rem;
-    padding: 1rem;
+    align-items: center;
+    padding: 2rem;
     color: $color-icon-svg-secondary;
     font-family: $font-family-primary;
 }
 
 .paragraph{
     &__title {
-        font-size: 1.3em;
+        font-size: 1.2em;
         color: yellow;
     }
 }
@@ -229,3 +244,42 @@
     font-weight: 400;
     font-size: 1em;
 }
+
+.link {
+    @extend .carrusel__link;
+}
+
+.btn {
+    cursor: pointer;
+    padding: .3rem;
+    font-family: $font-family-primary;
+    font-size: 1em;
+    transition: all .3s;
+    background-color: $color-btn;
+    color: #fff;
+
+    &:hover, &:active{
+        border: 3px solid rgb(68, 67, 67);
+        transition: all .3s;
+        animation: btnColor 4s;
+        animation-timing-function: ease;
+    }
+}
+
+
+
+#tooltip {
+    font-size: .5‬em !important;
+    display: none;
+    background: #333; 
+    color: white;
+    font-weight: bold;
+    padding: 4px 8px;
+    
+    border-radius: 4px;
+    font-family: $font-family-primary;
+}
+  
+  #tooltip[data-show] {
+    display: block;
+  }

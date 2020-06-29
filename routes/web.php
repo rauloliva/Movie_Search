@@ -1,11 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Validator;
-
-use function PHPSTORM_META\type;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +21,13 @@ Route::get('/', function () {
 Route::post('/catalog/search', 'CatalogController@search');
 
 Route::resource('catalog', 'CatalogController');
+
+Route::resource('movie', 'MovieController');
+
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
+});

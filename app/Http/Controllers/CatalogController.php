@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Middleware\RapidAPI;
 
 class CatalogController extends Controller
 {
@@ -25,26 +26,15 @@ class CatalogController extends Controller
             $validator->errors()->add('field', 'Something is wrong with this field!');
             return redirect('/')->withErrors($validator);
         }*/
-        $result = $this->sendAPI($request->movie, $validator);
+        $movies = $this->sendAPI($request->movie);
        // return response()->json($result);
         // $movie = $request->movie;
-        return view('catalog')->with('result', $result);
+        return view('catalog')->with('movies', $movies);
     }
 
-    function sendAPI($param, $validator){
-        $response = Http::withHeaders([
-                'x-rapidapi-host' => 'imdb8.p.rapidapi.com',
-                'x-rapidapi-key' => '6d99670b47mshdf5ba963563c300p19a8b8jsn83ebe70f3a54'
-            ])
-            ->get('https://imdb8.p.rapidapi.com/title/find', [
-                'q' => $param
-            ]);
-        
-        if($response->ok()){
-            return $response->json();
-        }
-    
-        $validator->errors()->add('field', 'Something wrong happen');
-        return redirect('/')->withErrors($validator);
+    function sendAPI($param){
+        $api = new RapidAPI('find', 'q', $param);
+        $response = $api->execute();
+        return $response;
     }
 }

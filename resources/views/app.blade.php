@@ -7,12 +7,14 @@
     <title>MovieSearch - @yield('title')</title>
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Josefin+Sans&display=swap" rel="stylesheet">
+    
 </head>
 <body>
 
     <header class="header">
         <span class="header__title" onclick="nuevaVentana()">MovieSearch</span>
     </header>
+    
     @yield('content')
 
     <footer class="footer">
@@ -25,4 +27,5 @@
     </footer>
 </body>
 <script src="{{asset('js/app.js')}}"></script>
+<script src="{{asset('js/assets.js')}}"></script>
 </html>
