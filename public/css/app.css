@@ -352,7 +352,7 @@ body {
           animation-timing-function: ease;
 }
 
-#tooltip {
+.tooltip {
   font-size: 0.5‬em !important;
   display: none;
   background: #333;
@@ -363,7 +363,13 @@ body {
   font-family: "Chelsea Market", cursive;
 }
 
-#tooltip[data-show] {
+.tooltip[data-show] {
   display: block;
+}
+
+.tooltip-red {
+  font-size: 1em !important;
+  color: red;
+  background-color: black;
 }
 

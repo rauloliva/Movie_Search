@@ -11,12 +11,13 @@
             <a href="#" class="nav__link">Help</a>
         </div>
 
-        <span id="tooltip" role="tooltip" aria-describedby="tooltip">Click to Search</span>
-        
-        <form action="/catalog/search" method="POST" class="nav__search">
+        <span id="btn_search_movie_tooltip" class="tooltip" role="tooltip" aria-describedby="tooltip">Click to Search</span>
+        <span id="txt_search_movie_tooltip" class="tooltip tooltip-red" role="tooltip" aria-describedby="tooltip">This is required</span>
+
+        <form id="form" action="/catalog/search" method="POST" class="nav__search">
             @csrf
-            <input class="nav__input" name="movie" type="text" required/>
-            <button id="search_movie" type="submit" class="nav__link nav__link-icon">
+            <input id="txt_search_movie" class="nav__input" name="movie" type="text"/>
+            <button id="btn_search_movie" type="submit" class="nav__link nav__link-icon">
                 <svg class="nav__enter">
                     <use xlink:href="../images/icons.svg#icon-arrow-thin-right"></use>
                 </svg>
@@ -24,7 +25,7 @@
         </form>
     </nav>
 
-    @if ($movies ?? '')
+    @if (isset($movies['results']))
         <div class="results__layout">
             @foreach ($movies['results'] as $movie)
                 @if (validateIndexes($movie))
@@ -40,8 +41,6 @@
                                 onclick="onClickImage()">
                                 {{$movie['title']}}
                             </p>
-                            <p class="paragraph__title">Type: {{$movie['titleType']}}</p>
-                            <p>Year of release: {{$movie['year']}}</p>
                             <button type="submit" class="btn">More Details</button>
                             <img class="results__image" src="{{$movie['image']['url']}}" alt="Image" width="150" height="200">
                         </div>
@@ -69,12 +68,11 @@
 
 <?php
     /**
-     *  validates if the indexes are set
+     *  validates if the results are movies
      **/
     function validateIndexes($result){
         if(isset($result['title']) and isset($result['titleType'])){
-            if(($result['titleType'] == 'movie' or $result['titleType'] == 'tvMovie' or 
-            $result['titleType'] == 'tvMovie') and isset($result['year'])){
+            if($result['titleType'] == 'movie'){
                 return true;
             }
         }

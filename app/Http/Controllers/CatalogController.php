@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Middleware\RapidAPI;
 
@@ -26,14 +25,13 @@ class CatalogController extends Controller
             $validator->errors()->add('field', 'Something is wrong with this field!');
             return redirect('/')->withErrors($validator);
         }*/
-        $movies = $this->sendAPI($request->movie);
+        $movies = $this->RequestAPI(['q' => $request->movie]);
        // return response()->json($result);
-        // $movie = $request->movie;
         return view('catalog')->with('movies', $movies);
     }
 
-    function sendAPI($param){
-        $api = new RapidAPI('find', 'q', $param);
+    function RequestAPI($param){
+        $api = new RapidAPI('find', $param);
         $response = $api->execute();
         return $response;
     }

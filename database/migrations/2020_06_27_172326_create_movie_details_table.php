@@ -15,8 +15,16 @@ class CreateMovieDetailsTable extends Migration
     {
         Schema::create('movie_details', function (Blueprint $table) {
             $table->id();
-            $table->text('directors');
-            $table->text('plot');
+            $table->string('duration');
+            $table->text('synopses');
+            $table->string('rating', 10);
+            $table->string('release_year', 5);
+            $table->text('img_url');
+            $table->integer('movie_id')->unsigned();
+            $table->foreign('movie_id')
+                    ->references('id')->on('movies')
+                    ->onDelete('cascade')
+                    ->onUpdate('cascade');
             $table->timestamps();
         });
     }

@@ -17,17 +17,7 @@ class CreateMoviesTable extends Migration
             $table->id();
             $table->string('key', 30);
             $table->string('title', 60);
-            $table->string('type', 20);
-            $table->string('release_year', 5);
-            $table->text('img_url');
-            $table->integer('movie_detail_id')->unsigned();
             $table->timestamps();
-
-            $table->increments('id');
-            $table->foreign('movie_detail_id')
-                    ->references('id')->on('movie_details')
-                    ->onDelete('cascade')
-                    ->onUpdate('cascade');
         });
     }
 

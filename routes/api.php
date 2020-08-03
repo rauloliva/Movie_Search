@@ -1,5 +1,8 @@
 <?php
 
+use App\Movie;
+use App\Movie_details;
+use App\Reviews;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Http;
@@ -17,4 +20,10 @@ use Illuminate\Support\Facades\Http;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::get('/show',function() {
+    $movie = Movie::find(1)->reviews;
+    // $reviews = $movie->reviews;
+    return response()->json($movie);
 });

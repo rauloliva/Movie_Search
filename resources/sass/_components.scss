@@ -267,19 +267,39 @@
 }
 
 
+// span[id $= "tooltip"] {
+//     font-size: .5‬em !important;
+//     display: none;
+//     background: #333; 
+//     color: white;
+//     font-weight: bold;
+//     padding: 4px 8px;
+    
+//     border-radius: 4px;
+//     font-family: $font-family-primary;
 
-#tooltip {
+//     &[data-show] {
+//         display: block;    
+//     }   
+// }
+
+.tooltip {
     font-size: .5‬em !important;
     display: none;
     background: #333; 
     color: white;
     font-weight: bold;
     padding: 4px 8px;
-    
     border-radius: 4px;
     font-family: $font-family-primary;
+
+    &[data-show] {
+        display: block;
+    }
+
+    &-red {
+        font-size: 1em !important;
+        color: red;
+        background-color:black;
+    }
 }
-  
-  #tooltip[data-show] {
-    display: block;
-  }

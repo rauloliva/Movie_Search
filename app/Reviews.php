@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Movie_details extends Model
+class Reviews extends Model
 {
-    public function movies(){
+    public function movie() {
         return $this->belongsTo("App\Movie");
     }
 }

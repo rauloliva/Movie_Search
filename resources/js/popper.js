@@ -1,28 +1,40 @@
 var Popper = require('@popperjs/core')
 
-const button = document.querySelector('#search_movie');
-const tooltip = document.querySelector('#tooltip');
+/**
+ * Creates a new tooltip to target element
+ * @param {*} target 
+ * @param {*} tooltip 
+ */
+function createTooltip(target, tooltip, position, showEvents, hideEvents) {
+    Popper.createPopper(target, tooltip, {
+      placement: position
+    });
 
-Popper.createPopper(button, tooltip, {
-    placement: 'right'
-});
+    showEvents.forEach(e => {
+      target.addEventListener(e, () => tooltip.setAttribute('data-show', ''));
+    });
 
+    hideEvents.forEach(e => {
+      target.addEventListener(e, () => tooltip.removeAttribute('data-show'));
+    });
+}
 
-function show() {
-    tooltip.setAttribute('data-show', '');
-  }
+var element = document.querySelector('#btn_search_movie');
+var tooltip = document.querySelector('#btn_search_movie_tooltip');
+
+createTooltip(element, tooltip, 'right', ['mouseenter', 'focus'], ['mouseleave', 'blur']);
   
-  function hide() {
-    tooltip.removeAttribute('data-show');
-  }
-  
-  const showEvents = ['mouseenter', 'focus'];
-  const hideEvents = ['mouseleave', 'blur'];
-  
-  showEvents.forEach(event => {
-    button.addEventListener(event, show);
-  });
-  
-  hideEvents.forEach(event => {
-    button.addEventListener(event, hide);
-  });
+// create tooltip for textfield
+
+function validateForm(event) {
+    var content = document.querySelector('#txt_search_movie').value;
+    if(content.trim() === ""){
+        var tooltip = document.querySelector('#txt_search_movie_tooltip');
+        createTooltip(e, tooltip, 'bottom', [], ['mouseleave', 'blur']);
+        tooltip.setAttribute('data-show', '')
+        event.preventDefault()
+    }
+}
+
+// validate the textfield search before submitting
+document.querySelector('#form').addEventListener('submit', validateForm);

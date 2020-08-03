@@ -33019,7 +33019,7 @@ __webpack_require__(/*! ./popper */ "./resources/js/popper.js");
  * Sets the behaviour of the carrusel container
  */
 function carrusel() {
-  texts = ['Find the latest releases from the cinema world', 'Enjoy a different experience while looking for a movie or tv series', 'Expactacular movies and TV Series', 'Interesting information and facts', 'Feel free to share your feedback <a href="#" class="carrusel__link">CONTACT US</a>'];
+  var texts = ['Find the latest releases from the cinema world', 'Enjoy a different experience while looking for a movie or tv series', 'Expactacular movies and TV Series', 'Interesting information and facts', 'Feel free to share your feedback <a href="#" class="carrusel__link">CONTACT US</a>'];
   var count = 1;
   setInterval(function () {
     count = count > 5 ? 1 : count;
@@ -33081,29 +33081,46 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ (function(module, exports, __webpack_require__) {
 
 var Popper = __webpack_require__(/*! @popperjs/core */ "./node_modules/@popperjs/core/lib/popper.js");
+/**
+ * Creates a new tooltip to target element
+ * @param {*} target 
+ * @param {*} tooltip 
+ */
 
-var button = document.querySelector('#search_movie');
-var tooltip = document.querySelector('#tooltip');
-Popper.createPopper(button, tooltip, {
-  placement: 'right'
-});
 
-function show() {
-  tooltip.setAttribute('data-show', '');
+function createTooltip(target, tooltip, position, showEvents, hideEvents) {
+  Popper.createPopper(target, tooltip, {
+    placement: position
+  });
+  showEvents.forEach(function (e) {
+    target.addEventListener(e, function () {
+      return tooltip.setAttribute('data-show', '');
+    });
+  });
+  hideEvents.forEach(function (e) {
+    target.addEventListener(e, function () {
+      return tooltip.removeAttribute('data-show');
+    });
+  });
 }
 
-function hide() {
-  tooltip.removeAttribute('data-show');
-}
+var element = document.querySelector('#btn_search_movie');
+var tooltip = document.querySelector('#btn_search_movie_tooltip');
+createTooltip(element, tooltip, 'right', ['mouseenter', 'focus'], ['mouseleave', 'blur']); // create tooltip for textfield
 
-var showEvents = ['mouseenter', 'focus'];
-var hideEvents = ['mouseleave', 'blur'];
-showEvents.forEach(function (event) {
-  button.addEventListener(event, show);
-});
-hideEvents.forEach(function (event) {
-  button.addEventListener(event, hide);
-});
+function validateForm(event) {
+  var content = document.querySelector('#txt_search_movie').value;
+
+  if (content.trim() === "") {
+    var tooltip = document.querySelector('#txt_search_movie_tooltip');
+    createTooltip(e, tooltip, 'bottom', [], ['mouseleave', 'blur']);
+    tooltip.setAttribute('data-show', '');
+    event.preventDefault();
+  }
+} // validate the textfield search before submitting
+
+
+document.querySelector('#form').addEventListener('submit', validateForm);
 
 /***/ }),
 

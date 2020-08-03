@@ -2,7 +2,7 @@
  * Sets the behaviour of the carrusel container
  */
 function carrusel() {
-    texts = [
+    var texts = [
         'Find the latest releases from the cinema world',
         'Enjoy a different experience while looking for a movie or tv series',
         'Expactacular movies and TV Series',
