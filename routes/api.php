@@ -23,7 +23,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/show',function() {
-    $movie = Movie::find(1)->reviews;
-    // $reviews = $movie->reviews;
+    $movie = Movie::where("key","=","tt4154796")->with(['movie_details',
+                        'reviews','images'])->get();
     return response()->json($movie);
 });

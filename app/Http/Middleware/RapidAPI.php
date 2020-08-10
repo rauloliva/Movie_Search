@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 use Illuminate\Support\Facades\Http;
 
 /**
- * 
+ * Sends request to the RapidAPI endpoints
  */
 class RapidAPI {
 
@@ -20,7 +20,9 @@ class RapidAPI {
     }
 
     /**
+     * Makes the request to the API endpoint
      * 
+     * @param JSON the response
      */
     function execute(){
         $response = Http::withHeaders([

@@ -13,4 +13,8 @@ class Movie extends Model
     public function reviews() {
         return $this->hasMany('App\Reviews');
     }
+
+    public function images() {
+        return $this->hasMany('App\Images');
+    }
 }

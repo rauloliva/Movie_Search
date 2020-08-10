@@ -19,7 +19,6 @@ class CreateMovieDetailsTable extends Migration
             $table->text('synopses');
             $table->string('rating', 10);
             $table->string('release_year', 5);
-            $table->text('img_url');
             $table->integer('movie_id')->unsigned();
             $table->foreign('movie_id')
                     ->references('id')->on('movies')
