@@ -94,7 +94,7 @@ class MovieController extends Controller
                 $review->title = $reviewObj['reviewTitle'];
                 $review->author = $reviewObj['author']['displayName'];
                 $review->date = $reviewObj['submissionDate'];
-                $review->text = mb_strimwidth($reviewObj['reviewText'], 0, 255,"...");
+                $review->text = mb_strimwidth($reviewObj['reviewText'], 0, 300,"...");;
                 $movie->reviews()->save($review);
             }
         }

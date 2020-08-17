@@ -31,28 +31,30 @@
         <div class="movie">
             <div class="movie__header">
                 <h1 class="movie__header-title">{{$movie['title']}}</h1>
-                <h2 class="movie__header-text">Duration: {{$movie['movie_details']['duration']}}</h2>
-                <h2 class="movie__header-text">Year: {{$movie['movie_details']['release_year']}}</h2>
-                <h2 class="movie__header-text">Rating: {{$movie['movie_details']['rating']}}</h2>
+                <h2 class="movie__header-text movie__header-duration">Duration: {{$movie['movie_details']['duration']}}</h2>
+                <h2 class="movie__header-text movie__header-year">Year: {{$movie['movie_details']['release_year']}}</h2>
+                <h2 class="movie__header-text movie__header-rating">Rating: {{$movie['movie_details']['rating']}}</h2>
             </div>
             
-            <h3>Movie Synopses: {{$movie['movie_details']['synopses']}}</h3>
+            <h3 class="movie__synopses">Synopses: {{$movie['movie_details']['synopses']}}</h3>
 
             <div class="movie__images">
                 @foreach ($movie['images'] as $image)
-                    <img src="{{ $image['image_url'] }}" width="200" height="200" alt="Image {{ $image['id'] }}">
+                    <img src="{{ $image['image_url'] }}" class="movie__image" alt="Image {{ $image['id'] }}">
                 @endforeach
             </div>
 
-            <h2>Movie Reviews:</h2>
+            <h2>Reviews</h2>
 
-            <div>
-            @foreach ($movie['reviews'] as $review)
-                <h3>{{ $review['title'] }}</h3>
-                <h3>{{ $review['author'] }}</h3>
-                <h3>{{ $review['date'] }}</h3>
-                <h3>{{ $review['text'] }}</h3>
-            @endforeach
+            <div class="movie__reviews">
+                @foreach ($movie['reviews'] as $review)
+                    <div class="movie__review">
+                        <h3 class="movie__review-title">{{ $review['title'] }}</h3>
+                        <h4>By {{ $review['author'] }} - {{ $review['date'] }}</h4>
+                        <p>{{ $review['text'] }}</p>    
+                        <hr class="separator movie__review-sep">
+                    </div>
+                @endforeach
             </div>
         </div>
 
