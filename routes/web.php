@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +22,8 @@ Route::post('/catalog/search', 'CatalogController@search');
 Route::resource('catalog', 'CatalogController');
 
 Route::resource('movie', 'MovieController');
+
+Route::get('/movie/review/{id}', 'MovieController@showReview');
 
 Route::get('/about', function () {
     return view('about');

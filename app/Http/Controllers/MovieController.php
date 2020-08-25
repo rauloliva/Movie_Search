@@ -94,7 +94,7 @@ class MovieController extends Controller
                 $review->title = $reviewObj['reviewTitle'];
                 $review->author = $reviewObj['author']['displayName'];
                 $review->date = $reviewObj['submissionDate'];
-                $review->text = mb_strimwidth($reviewObj['reviewText'], 0, 300,"...");;
+                $review->text = $reviewObj['reviewText'];
                 $movie->reviews()->save($review);
             }
         }
@@ -105,6 +105,15 @@ class MovieController extends Controller
             $movie->images()->save($images);
         }
         $this->movie = $movie;
+    }
+
+    /**
+     * 
+     */
+    public function showReview($reviewID) {
+        $review = Reviews::where("id","=",$reviewID)->get()[0];
+        return view('review')->with('review', $review);
+        // return response()->json($review);
     }
 
     /**

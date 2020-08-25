@@ -51,7 +51,7 @@
                     <div class="movie__review">
                         <h3 class="movie__review-title">{{ $review['title'] }}</h3>
                         <h4>By {{ $review['author'] }} - {{ $review['date'] }}</h4>
-                        <p>{{ $review['text'] }}</p>    
+                        <p>{{ mb_strimwidth($review['text'], 0, 250,"...") }} <a href="review/{{$review['id']}}" class="movie__review-link">[Read More]</a></p>    
                         <hr class="separator movie__review-sep">
                     </div>
                 @endforeach
