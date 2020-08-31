@@ -20,4 +20,20 @@ function carrusel() {
     }, 15000);
 }
 
+function isConnected(evt) {
+    const connected = navigator.onLine
+    if(!connected) {
+        $('.connection').show()
+        evt.preventDefault()
+    }else{
+        $('.connection').hide()    
+    }
+}
+
+$("form").submit(function(evt) {
+    isConnected(evt)
+})
+
+$('.connection').hide()    
+
 carrusel()

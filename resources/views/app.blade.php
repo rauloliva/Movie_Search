@@ -10,6 +10,8 @@
 </head>
 <body>
 
+    <div class="connection">You are Disconnected</div>
+
     <header class="header">
         <span class="header__title" onclick="nuevaVentana()">MovieSearch</span>
     </header>

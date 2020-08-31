@@ -112,8 +112,10 @@ class MovieController extends Controller
      */
     public function showReview($reviewID) {
         $review = Reviews::where("id","=",$reviewID)->get()[0];
-        return view('review')->with('review', $review);
-        // return response()->json($review);
+        $movie = Movie::where('id','=', $review->movie_id)->get()[0];
+        return view('review')->with('review', $review)
+                             ->with('movieTitle', strtoupper(str_replace('-', ' ',$movie->title)));
+        // return response()->json($movie);
     }
 
     /**

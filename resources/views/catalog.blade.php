@@ -42,7 +42,7 @@
                                 {{$movie['title']}}
                             </p>
                             <button type="submit" class="btn">More Details</button>
-                            <img class="results__image" src="{{$movie['image']['url']}}" alt="Image" width="150" height="200">
+                            <img class="results__image" src="{{ $movie['image']['url'] }}" alt="Image" width="150" height="200">
                         </div>
                     </form>
                 @endif

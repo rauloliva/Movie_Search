@@ -26,7 +26,7 @@ class CatalogController extends Controller
             return redirect('/')->withErrors($validator);
         }*/
         $movies = $this->RequestAPI(['q' => $request->movie]);
-       // return response()->json($result);
+    //    return response()->json($movies);
         return view('catalog')->with('movies', $movies);
     }
 

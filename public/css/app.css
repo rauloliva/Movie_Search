@@ -470,6 +470,15 @@ body {
           animation-timing-function: ease;
 }
 
+.connection {
+  background: red;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Chelsea Market", cursive;
+  padding: 1rem;
+  font-size: 1.2em;
+}
+
 .footer {
   display: grid;
   grid-template-columns: 1/-1;
@@ -757,5 +766,89 @@ body {
 
 .separator {
   height: 3px;
+}
+
+.review {
+  opacity: 0.9;
+  color: #c0eef0;
+  display: grid;
+  grid-template-rows: minmax(-webkit-min-content, 10px);
+  grid-template-rows: minmax(min-content, 10px);
+  grid-template-columns: minmax(-webkit-min-content, -webkit-max-content);
+  grid-template-columns: minmax(min-content, max-content);
+  grid-row-gap: 1.5rem;
+  font-family: "Chelsea Market", cursive;
+  padding: 3rem;
+  width: 90%;
+  margin: 1rem 5rem 1rem 5rem;
+  background-color: blueviolet;
+}
+
+@media only screen and (max-width: 1300px) {
+  .review {
+    width: 95%;
+    margin: 1rem 2rem 1rem 2rem;
+  }
+}
+
+@media only screen and (max-width: 1140px) {
+  .review {
+    padding: 1rem;
+  }
+}
+
+@media only screen and (max-width: 1080px) {
+  .review {
+    width: 97%;
+    margin: 1rem;
+  }
+}
+
+@media only screen and (max-width: 840px) {
+  .review {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .review {
+    padding: 0.2rem;
+  }
+}
+
+.review__title {
+  font-size: 1.8em;
+  justify-self: center;
+}
+
+.review__review {
+  padding: 1rem;
+  display: grid;
+  grid-template-rows: repeat(4, minmax(-webkit-min-content, -webkit-max-content));
+  grid-template-rows: repeat(4, minmax(min-content, max-content));
+  grid-template-columns: minmax(-webkit-min-content, -webkit-max-content);
+  grid-template-columns: minmax(min-content, max-content);
+  grid-row-gap: 1rem;
+}
+
+@media only screen and (max-width: 415px) {
+  .review__review {
+    padding: 0.5rem;
+  }
+}
+
+.review__review-title {
+  color: yellow;
+}
+
+@media only screen and (max-width: 630px) {
+  .review__review-title {
+    font-size: 1.1em;
+  }
+}
+
+.review__review-link {
+  color: #70b6f7;
 }
 

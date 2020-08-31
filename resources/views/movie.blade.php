@@ -40,7 +40,7 @@
 
             <div class="movie__images">
                 @foreach ($movie['images'] as $image)
-                    <img src="{{ $image['image_url'] }}" class="movie__image" alt="Image {{ $image['id'] }}">
+                    <a target="_blank" href="{{ $image['image_url'] }}"><img src="{{ $image['image_url'] }}" class="movie__image" alt="Image {{ $image['id'] }}"></a>
                 @endforeach
             </div>
 

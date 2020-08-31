@@ -339,3 +339,12 @@
         animation-timing-function: ease;
     }
 }
+
+.connection {
+    background: red;
+    font-weight: bold;
+    text-align: center;
+    font-family: $font-family-primary;
+    padding: 1rem;
+    font-size: 1.2em;
+}
