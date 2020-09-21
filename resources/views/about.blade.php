@@ -2,16 +2,7 @@
 
 @section('title', 'About')
     
-@section('content')
-    <nav class="nav">
-        <div class="nav__actions">
-            <a href="/" class="nav__link">Home</a>
-            <a href="/catalog" class="nav__link">Catalog</a>
-            <a href="/contact" class="nav__link">Contact</a>
-            <a href="#" class="nav__link">Help</a>
-        </div>
-    </nav>  
-    
+@section('content') 
     <div class="home__layout">
         <div class="home__container">
             <h1 class="home__container-h1">

@@ -27,7 +27,13 @@ class CatalogController extends Controller
         }*/
         $movies = $this->RequestAPI(['q' => $request->movie]);
     //    return response()->json($movies);
-        return view('catalog')->with('movies', $movies);
+        $navOptions = [
+            ['title' => 'Home', 'url' => '/'],
+            ['title' => 'Contact', 'url' => '/contact'],
+            ['title' => 'Help', 'url' => '/help'],
+            ['title' => 'API', 'url' => '/docs']
+        ];
+        return view('catalog')->with('movies', $movies)->with('navOptions', $navOptions);
     }
 
     function RequestAPI($param){

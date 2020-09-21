@@ -27,3 +27,9 @@ Route::get('/show',function() {
                         'reviews','images'])->get();
     return response()->json($movie);
 });
+
+Route::get('/movies','MovieAPIController@main');
+Route::get('/movies/show/{id}', 'MovieAPIController@show');
+
+Route::get('/reviews', 'ReviewsAPIController@index');
+Route::get('/reviews/show/{id}', 'ReviewsAPIController@show');

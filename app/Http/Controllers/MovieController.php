@@ -20,6 +20,12 @@ class MovieController extends Controller
      * Number of reviews
      */
     private $reviews_limit = 5;
+    private $navOptions = [
+        ['title' => 'Home', 'url' => '/'],
+        ['title' => 'Contact', 'url' => '/contact'],
+        ['title' => 'Help', 'url' => '/help'],
+        ['title' => 'API', 'url' => '/docs']
+    ];
 
     public function show($id){
         $params = ['tconst' => $id];
@@ -42,7 +48,9 @@ class MovieController extends Controller
             $this->saveMovie($id,$details, $ratings, $reviews, $synopses, $images);
             $this->movie->movie_details; $this->movie->reviews; $this->movie->images;
         }
-        return view('movie')->with('movie', $this->movie);
+        return view('movie')
+               ->with('movie', $this->movie)
+               ->with('navOptions', $this->navOptions);
         // return response()->json($this->movie, 200);
     }
 
@@ -114,7 +122,8 @@ class MovieController extends Controller
         $review = Reviews::where("id","=",$reviewID)->get()[0];
         $movie = Movie::where('id','=', $review->movie_id)->get()[0];
         return view('review')->with('review', $review)
-                             ->with('movieTitle', strtoupper(str_replace('-', ' ',$movie->title)));
+                             ->with('movieTitle', strtoupper(str_replace('-', ' ',$movie->title)))
+                             ->with('navOptions', $this->navOptions);
         // return response()->json($movie);
     }
 

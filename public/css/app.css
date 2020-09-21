@@ -298,6 +298,34 @@ body {
   font-family: "Chelsea Market", cursive;
 }
 
+@media only screen and (max-width: 1200px) {
+  .results__layout {
+    grid-template-columns: repeat(4, minmax(-webkit-min-content, -webkit-max-content));
+    grid-template-columns: repeat(4, minmax(min-content, max-content));
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .results__layout {
+    grid-template-columns: repeat(3, minmax(-webkit-min-content, -webkit-max-content));
+    grid-template-columns: repeat(3, minmax(min-content, max-content));
+  }
+}
+
+@media only screen and (max-width: 660px) {
+  .results__layout {
+    grid-template-columns: repeat(2, minmax(-webkit-min-content, -webkit-max-content));
+    grid-template-columns: repeat(2, minmax(min-content, max-content));
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .results__layout {
+    grid-template-columns: minmax(-webkit-min-content, -webkit-max-content);
+    grid-template-columns: minmax(min-content, max-content);
+  }
+}
+
 .paragraph__title {
   font-size: 1.2em;
   color: yellow;

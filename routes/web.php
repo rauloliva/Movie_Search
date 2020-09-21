@@ -14,8 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
+Route::get('/', function () {;
+    return view('home')->with('navOptions', [
+        ['title' => 'About', 'url' => '/about'],
+        ['title' => 'Contact', 'url' => '/contact'],
+        ['title' => 'Help', 'url' => '/help'],
+        ['title' => 'API', 'url' => '/docs']
+    ]);
 });
 
 Route::post('/catalog/search', 'CatalogController@search');
@@ -27,9 +32,19 @@ Route::resource('movie', 'MovieController');
 Route::get('/movie/review/{id}', 'MovieController@showReview');
 
 Route::get('/about', function () {
-    return view('about');
+    return view('about')->with('navOptions', [
+        ['title' => 'Home', 'url' => '/'],
+        ['title' => 'Contact', 'url' => '/contact'],
+        ['title' => 'Help', 'url' => '/help'],
+        ['title' => 'API', 'url' => '/docs']
+    ]);
 });
 
 Route::get('/contact', function () {
-    return view('contact');
+    return view('contact')->with('navOptions', [
+        ['title' => 'Home', 'url' => '/'],
+        ['title' => 'Contact', 'url' => '/contact'],
+        ['title' => 'Help', 'url' => '/help'],
+        ['title' => 'API', 'url' => '/docs']
+    ]);
 });

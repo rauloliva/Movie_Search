@@ -195,6 +195,22 @@
     padding: 2rem;
     color: $color-icon-svg-secondary;
     font-family: $font-family-primary;
+
+    @media only screen and(max-width: $media-screen-1200) {
+        grid-template-columns: repeat(4, minmax(min-content, max-content));
+    }
+
+    @media only screen and(max-width: $media-screen-900) {
+        grid-template-columns: repeat(3, minmax(min-content, max-content));
+    }
+
+    @media only screen and(max-width: $media-screen-660) {
+        grid-template-columns: repeat(2, minmax(min-content, max-content));
+    }
+
+    @media only screen and(max-width: $media-screen-500) {
+        grid-template-columns: minmax(min-content, max-content);
+    }
 }
 
 .paragraph{
