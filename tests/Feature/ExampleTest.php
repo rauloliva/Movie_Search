@@ -17,5 +17,9 @@ class ExampleTest extends TestCase
         $response = $this->get('/');
 
         $response->assertStatus(200);
+
+        // test in API
+        $response = $this->get('api/movies/1');
+        $response->assertStatus(500);
     }
 }

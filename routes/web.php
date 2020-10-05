@@ -48,3 +48,7 @@ Route::get('/contact', function () {
         ['title' => 'API', 'url' => '/docs']
     ]);
 });
+
+Route::get('/docs', function() {
+    return view('docs');
+});
